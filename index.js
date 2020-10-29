@@ -119,8 +119,30 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore() {
+  let count = 0;
+  return function() {
+    return count++;
+  }
 }
 
 
+function scoreboard(cb1, cb2, innNum) {
+  const inningScore = cb1();
+
+  for (i = 1; i <= innNum; i++) {
+    if (i === 1) {
+      console.log(`${i}st inning: ${cb2() + inningScore() + 1} - ${cb2() + inningScore() + 2}`);
+    } else if (i === 2) {
+      console.log(`${i}nd inning: ${cb2() + inningScore() + 1} - ${cb2() + inningScore() + 2}`);
+    } else if (i === 3) {
+      console.log(`${i}rd inning: ${cb2() + inningScore() + 1} - ${cb2() + inningScore() + 2}`);
+    } else {
+      console.log(`${i}th inning: ${cb2() + inningScore() + 1} - ${cb2() + inningScore() + 2}`);
+    }
+  }
+
+  console.log(`Final Score: ${cb2() + inningScore() + 1} - ${cb2() + inningScore() + 2}`);
+}
+
+scoreboard(getInningScore, inning, 9);

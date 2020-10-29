@@ -63,11 +63,14 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(team){
 
-    /*Code Here*/
+    let rnumber = Math.floor((Math.random()) * 3);
+    return (`The ${team} scorred ${rnumber} points`);
 
 }
+
+console.log(inning("Yankies"));
 
 /* Task 3: finalScore()
 

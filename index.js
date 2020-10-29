@@ -28,10 +28,17 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * In counter2, the count variable is declared in the outer-most scope meaning anything on the file can access it. counter1 on the other hand has count in the function counterMaker's scope meaning it can only be accessed within that function.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * counter1 is using a closure because it is assigned to a funciton that is returning another function for the sake of scope "protection".
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * counter1 would be better if you want to be able to reuse the variables that you declare in it's function in other functions. These variables can have vague/general-purpose names for easier readability.
+ * counter2 would be better if you want to delcare a variable that will be accessed all throughout your file.
+ * 
 */
 
 // counter1 code
